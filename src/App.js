@@ -1,16 +1,12 @@
-import './App.css';
-import NavBar from './Components/NavBar';
-import ItemListConteiner from './Components/ItemListConteiner';
+import "./App.css";
+import ItemListContainer from "./components/ItemListContainer";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <main>
-        <NavBar />
-        <ItemListConteiner greeting={"Hola SmartSheep"} />
-      </main>
-      
-    </div>
+    <Layout>
+      <ItemListContainer />
+    </Layout>
   );
 }
 
