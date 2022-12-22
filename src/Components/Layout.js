@@ -1,10 +1,12 @@
 import NavbarComponent from "./NavBar";
 
-export const Layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
-    <main className="d-flex flex-column bg-info">
+    <main className="d-flex flex-column bg-light">
       <NavbarComponent />
       {children}
     </main>
   );
 };
+
+export default Layout;
