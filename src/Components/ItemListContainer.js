@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 
 // Mock
-import { item } from "../mocks/item.mock";
+import { items } from "../mocks/item.mock";
 
 const ItemListContainer = () => {
   const { category } = useParams();
@@ -14,7 +14,7 @@ const ItemListContainer = () => {
   useEffect(() => {
     new Promise((resolve) =>
       setTimeout(() => {
-        resolve(item);
+        resolve(items);
       }, 2000)
     ).then((data) => {
       if (category) {

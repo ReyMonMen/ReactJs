@@ -2,7 +2,7 @@ import img1 from '../assets/images/mesa.jpg';
 import img2 from '../assets/images/silla.jpg';
 
 
-export const item = [
+export const items = [
     {
         id: "1",
         name: "Mesa",

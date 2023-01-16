@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
   return (
     <main className="d-flex flex-column bg-light">
       <NavbarComponent />
-      {children}
+      <section>{children}</section>
     </main>
   );
 };
