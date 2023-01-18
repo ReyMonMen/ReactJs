@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-// Own components
-import ItemList from "./ItemList";
+// Importando Componente
+import { ItemList } from "./ItemList";
 
-// Mock
+// Importando Items
 import { items } from "../mocks/item.mock";
 
-const ItemListContainer = () => {
+export const ItemListContainer = () => {
   const { category } = useParams();
-  const [products, setProducts] = useState([]);
+  const [ products, setProducts ] = useState([]);
 
   useEffect(() => {
     new Promise((resolve) =>
@@ -33,10 +33,8 @@ const ItemListContainer = () => {
   }
 
   return (
-    <div className="">
+    <div>
       <ItemList products={products} />
     </div>
   );
 };
-
-export default ItemListContainer;

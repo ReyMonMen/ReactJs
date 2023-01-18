@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/cartContext";
 import { ItemCount } from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
+  const { addItem } = useContext(CartContext);
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.stock);
@@ -15,7 +17,10 @@ const ItemDetail = ({ item }) => {
 
   function handleAdd() {
     if (currentStock < count) alert("No hay suficiente stock de este producto");
-    else setCurrentStock(currentStock - count);
+    else {
+      setCurrentStock(currentStock - count);
+      addItem(item, count);
+    }
   }
 
   function handleCheckout() {
@@ -25,7 +30,8 @@ const ItemDetail = ({ item }) => {
 
     return (
       <div>
-        <div><img src={item.img} alt="" /></div>
+        <div>
+          <img src={item.img} alt="" /></div>
         <div>
           <h2>{item.name}</h2>
           <p>{item.description}</p>
@@ -34,14 +40,14 @@ const ItemDetail = ({ item }) => {
             <p>En Stock: {currentStock}</p>
         )}
 
-        <div className="flex flex-col flex-1 items-center">
+        <div>
           {/* Count */}
           {currentStock > 0 ? (
             <ItemCount count={count} handleCount={handleCount} />
             ) : (
-            <span className="text-red-500 mt-10">Sin stock</span>
+            <span>Sin stock</span>
             )}
-            <div className="w-full flex flex-col items-center">
+            <div>
               <button
                 onClick={handleAdd}
                 disabled={currentStock === 0}>

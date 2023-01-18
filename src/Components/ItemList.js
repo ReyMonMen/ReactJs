@@ -1,6 +1,6 @@
-import Item from "./Item";
+import { Item } from "./Item";
 
-const ItemList = ({ products }) => {
+export const ItemList = ({ products }) => {
   return (
     <ul className="d-flex justify-content-center">
       {products.map((product) => (
@@ -9,5 +9,3 @@ const ItemList = ({ products }) => {
     </ul>
   );
 };
-
-export default ItemList;

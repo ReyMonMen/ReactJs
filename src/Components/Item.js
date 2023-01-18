@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Item = ({ product }) => {
+export const Item = ({ product, cantidadAgregada }) => {
   const navigate = useNavigate();
 
   const description = product.description.slice(0, 30);
@@ -13,7 +13,7 @@ const Item = ({ product }) => {
     return (
       <div onClick = {handleNavigate}>
         <div>
-        <img src={product.img} className="img-thumbnail" alt="Product" />
+        <img src={product.img} alt=""/>
         <hr/>
         <span>{product.name.length > 20 ? `${title}...` : product.name}</span>
         <hr/>
@@ -26,11 +26,13 @@ const Item = ({ product }) => {
         <div>
           <span >${product.price}</span>
           <hr/>
-          <span >In Stock: {product.stock}</span>
+          <span >
+            {cantidadAgregada ? "Agregados" : "En Stock"}:{""}
+            {cantidadAgregada || product.stock}
+          </span>
         </div>
       </div>
       </div>
     );
 };
   
-export default Item;
